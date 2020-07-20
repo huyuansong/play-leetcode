@@ -31,9 +31,11 @@ cmake-build-debug/
 # PPT                    #
 ##########################
 ppt/
-*.pdf
-*.cpp
-*.h
-*.c
-*.exe
-*.txt
+*.pdf/
+*.cpp/
+*.h/
+*.c/
+*.exe/
+*.txt/
+
+
