@@ -1,6 +1,4 @@
-/**
- * Created by liuyubobobo.
- */
+
 public class Util {
 
     private Util(){}

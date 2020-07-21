@@ -1,6 +1,4 @@
-/**
- * Created by liuyubobobo.
- */
+
 public class BinarySearch {
 
     private BinarySearch(){}
