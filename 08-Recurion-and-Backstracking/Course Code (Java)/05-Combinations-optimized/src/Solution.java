@@ -2,10 +2,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/// 77. Combinations
+/// 77. Combinations  组合问题
 /// https://leetcode.com/problems/combinations/description/
 /// 时间复杂度: O(n^k)
 /// 空间复杂度: O(k)
+//  优化 剪枝
 public class Solution {
 
     private ArrayList<List<Integer>> res;
@@ -31,7 +32,7 @@ public class Solution {
         }
 
         // 还有k - c.size()个空位, 所以, [i...n] 中至少要有 k - c.size() 个元素
-        // i最多为 n - (k - c.size()) + 1
+        // i最多为 n - (k - c.size()) + 1   这一步就做到了剪枝的优化（ k - c.size ）
         for(int i = start ; i <= n - (k - c.size()) + 1 ; i ++){
             c.addLast(i);
             generateCombinations(n, k, i + 1, c);
