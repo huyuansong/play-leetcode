@@ -24,12 +24,12 @@ public class Solution1 {
     public int numSquares(int n) {  //问题转化为 求一个图的层次遍历
 
         LinkedList<Pair<Integer, Integer>> queue = new LinkedList<Pair<Integer, Integer>>();  //层序遍历需要一个队列  《第几个数字，经历了几段路径到该数字》
-        queue.addLast(new Pair<Integer, Integer>(n, 0));  // 到达n节点，需要0步
+        queue.addLast(new Pair<Integer, Integer>(n, 0));  // <第几个数字，经历了几段路径走到这个数字> 初始化
 
         while(!queue.isEmpty()){
             Pair<Integer, Integer> front = queue.removeFirst();  //取出队首的元素
-            int num = front.getKey();   //元素的值
-            int step = front.getValue(); //距离的步数
+            int num = front.getKey();   //数字是多少
+            int step = front.getValue(); //走了几段路径
 
             if(num == 0)
                 return step;      //这就是解  从n到0用了step这么多步
