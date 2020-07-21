@@ -13,9 +13,9 @@ public class Solution2 {
         int two = nums.length;  // [two...n-1] == 2
         for(int i = 0 ; i < two ; ){  //画图很容易
             if(nums[i] == 1){
-                i ++;  //
+                i ++;  
             }
-            else if (nums[i] == 2) {//
+            else if (nums[i] == 2) {
                 swap(nums, i, --two);   
             }
             else{ // nums[i] == 0

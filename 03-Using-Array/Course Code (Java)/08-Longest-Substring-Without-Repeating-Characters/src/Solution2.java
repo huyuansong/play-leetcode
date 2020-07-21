@@ -14,7 +14,7 @@ public class Solution2 {
 
         // 在这里, 循环中止的条件可以是 r + 1 < s.length(), 想想看为什么?
         // 感谢课程QQ群 @千千 指出 :)
-        while( r + 1 < s.length() ){
+        while( r + 1 < s.length() ){  // 至少还有一个元素可以截取
 
             if( r + 1 < s.length() && freq[s.charAt(r+1)] == 0 )
                 freq[s.charAt(++r)] ++;

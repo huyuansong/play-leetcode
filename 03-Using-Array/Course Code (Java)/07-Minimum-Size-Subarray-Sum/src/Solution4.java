@@ -11,7 +11,7 @@ public class Solution4 {
         if(s <= 0 || nums == null)
             throw new IllegalArgumentException("Illigal Arguments");
 
-        int l = 0 , r = -1; // [l...r]为我们的窗口
+        int l = 0 , r = -1; // [l...r）为我们的窗口
         int sum = 0;
         int res = nums.length + 1;
 

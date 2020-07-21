@@ -42,7 +42,7 @@ public class Solution3 {
 
     public static void main(String[] args) {
 
-        int[] nums = { 15,11,7,2};
+        int[] nums = { 2, 7,11,15};
         int target = 9;
         printArr((new Solution3()).twoSum(nums, target));
     }

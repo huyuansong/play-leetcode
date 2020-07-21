@@ -12,7 +12,7 @@ public class Solution3 {
         int l = 0, r = -1; //滑动窗口为s[l...r]
         int res = 0;
 
-        while(r + 1 < s.length()){   //窗口右侧的元素没有越界
+        while(r + 1 < s.length()){   //窗口右侧至少还有一个元素可以加进来
 
             while(r + 1 < s.length() && freq[s.charAt(r+1)] == 0)  //  窗口右侧的元素没有越界，且这个元素是第一次出现
                 freq[s.charAt(++r)] ++;                            //  窗口右侧向前滑动，频率+1
