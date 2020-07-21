@@ -1,6 +1,4 @@
-/**
- * Created by liuyubobobo.
- */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,7 +17,7 @@ public class Main {
             
 
             System.out.print("data size 2^" + i + " = " + n + "\t");
-            System.out.println("Time cost: " + (endTime - startTime) + " ms");
+            System.out.println("Time cost: " + (endTime - startTime) + " ns");
             
         }
     }

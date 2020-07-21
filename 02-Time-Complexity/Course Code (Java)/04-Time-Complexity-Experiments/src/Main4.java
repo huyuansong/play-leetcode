@@ -1,6 +1,4 @@
-/**
- * Created by liuyubobobo.
- */
+
 public class Main4 {
 
     public static void main(String[] args) {
