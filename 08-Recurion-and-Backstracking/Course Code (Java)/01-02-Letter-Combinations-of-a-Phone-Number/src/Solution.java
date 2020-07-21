@@ -47,11 +47,11 @@ class Solution {
         assert  c.compareTo('0') >= 0 &&
                 c.compareTo('9') <= 0 &&
                 c.compareTo('1') != 0;
-        String letters = letterMap[c - '0'];
+        String letters = letterMap[c - '0'];   // 找到对应的ascii码
         for(int i = 0 ; i < letters.length() ; i ++){
             System.out.println("digits[" + index + "] = " + c +
                     " , use " + letters.charAt(i));
-            findCombination(digits, index+1, s + letters.charAt(i));
+            findCombination(digits, index+1, s + letters.charAt(i));   //根据当前字母，接着搜索
         }
 
         System.out.println("digits[" + index + "] = " + c + " complete, return");
