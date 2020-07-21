@@ -25,12 +25,12 @@ public class Main {
             ret += i;
         return ret;
     }
-
+    // O(n)
     private static void reverse(Object[] arr){
 
         int n = arr.length;
-        for(int i = 0 ; i < n / 2 ; i ++ )
-            swap(arr, i, n - 1 - i);
+        for(int i = 0 ; i < n / 2 ; i ++ )  // 这种边界值具体的设定，可以通过归纳法得出，用一两个例子就可以
+            swap(arr, i, n - 1 - i);  // 交换的元素的位置索引 归纳法
     }
 
     // O(n^2) Time Complexity
@@ -38,7 +38,7 @@ public class Main {
 
         for(int i = 0 ; i < n ; i ++){
             int minIndex = i;
-            for(int j = i + 1 ; j < n ; j ++)
+            for(int j = i + 1 ; j < n ; j ++) // 每次从后面未排序元素中选取最小值，放在最近待排序元素位置（交换）
                 if(arr[j].compareTo(arr[minIndex]) < 0)
                     minIndex = j;
 
@@ -57,8 +57,8 @@ public class Main {
     // O(logn) Time Complexity
     private static int binarySearch(Comparable[] arr, int n, int target){
 
-        int l = 0, r = n-1;
-        while( l <= r ){
+        int l = 0, r = n-1;  // [l,r] 中查找
+        while( l <= r ){  // 数组有意义
             int mid = l + (r-l)/2;
             if(arr[mid].compareTo(target) == 0) return mid;
             if(arr[mid].compareTo(target) > 0) r = mid - 1;
@@ -68,7 +68,7 @@ public class Main {
     }
 
     
-
+    // O(logn)
     private static String intToString(int num){
 
         StringBuilder s = new StringBuilder("");
@@ -79,7 +79,7 @@ public class Main {
         }
 
         while(num != 0){
-            s.append(Character.getNumericValue('0') + num % 10);
+            s.append(Character.getNumericValue('0') + num % 10); // 将数字转为 ASCII字符
             num /= 10;
         }
 
@@ -97,7 +97,7 @@ public class Main {
     // O(nlogn)
     private static void hello(int n){
 
-        for( int sz = 1 ; sz < n ; sz += sz )
+        for( int sz = 1 ; sz < n ; sz += sz )  // (sz*2) *2 ……  < n    logN
             for( int i = 1 ; i < n ; i ++ )
                 System.out.println("Hello, Algorithm!");
     }
@@ -111,7 +111,7 @@ public class Main {
                 return false;
         return true;
     }
-
+    // O(sqrt(n)) Time Complexity
     private static boolean isPrime2(int num){
 
         if( num <= 1 ) return false;
