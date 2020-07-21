@@ -35,7 +35,7 @@ class Solution {
         if(p == null || q == null)
             throw new IllegalArgumentException("p or q can not be null.");
 
-        if(root == null)    // 递归结束条件
+        if(root == null)    // 空树中不存在这样的节点
             return null;
 
         if(p.val < root.val && q.val < root.val)   //p q 都在root的左边
@@ -46,7 +46,7 @@ class Solution {
         assert p.val == root.val || q.val == root.val   // p 或者 q 本身就是root 
                 || (root.val - p.val) * (root.val - q.val) < 0;  // p q 分布在root的两侧
 
-        return root;
+        return root;  // p 和 q 能够保证都存在
     }
 
 
