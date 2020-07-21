@@ -14,8 +14,8 @@ public class Solution2 {
         LinkedList<Pair<Integer, Integer>> queue = new LinkedList<Pair<Integer, Integer>>();
         queue.addLast(new Pair<Integer, Integer>(n, 0));
 
-        boolean[] visited = new boolean[n+1];  //由于是图结构，为了避免重复加入队列元素
-        visited[n] = true;  //
+        boolean[] visited = new boolean[n+1];  //由于是图结构，一个节点会有多种途径到达，因此存在很多的重复推入队列
+        visited[n] = true;  // n节点默认是访问过的
 
         while(!queue.isEmpty()){
             Pair<Integer, Integer> front = queue.removeFirst();

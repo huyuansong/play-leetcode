@@ -28,12 +28,23 @@ public class Solution3 {
             if(num == 0)
                 return step;
 
-            for(int i = 1 ; num - i*i >= 0 ; i ++){   //num - i*i 不要被反复重复计算
+            // for(int i = 1 ; num - i*i >= 0 ; i ++){   //num - i*i 不要被反复重复计算
+            //     int a = num - i*i;
+            //     if(!visited[a]){
+            //         if(a == 0) return step + 1;  //已经结束，可以提前结束
+            //         queue.addLast(new Pair(num - i * i, step + 1));
+            //         visited[num - i * i] = true;
+            //     }
+            // }
+
+            for(int i = 1 ; ; i ++){   //num - i*i 不要被反复重复计算
                 int a = num - i*i;
+                if(a < 0)
+                    break;
                 if(!visited[a]){
-                    if(a == 0) return step + 1;  //已经结束，可以提前结束
-                    queue.addLast(new Pair(num - i * i, step + 1));
-                    visited[num - i * i] = true;
+                    if(a == 0) return step + 1;  //只经历了一步就已经到达0了，直接返回结果
+                    queue.addLast(new Pair( a , step + 1));
+                    visited[a] = true;
                 }
             }
         }
