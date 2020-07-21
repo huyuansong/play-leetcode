@@ -6,6 +6,7 @@ import java.util.LinkedList;
 /// https://leetcode.com/problems/combinations/description/
 /// 时间复杂度: O(n^k)
 /// 空间复杂度: O(k)
+// 组合问题  回溯法   递归树
 public class Solution {
 
     private ArrayList<List<Integer>> res;
