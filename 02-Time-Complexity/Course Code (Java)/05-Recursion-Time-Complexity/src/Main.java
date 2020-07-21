@@ -1,7 +1,7 @@
 public class Main {
 
     // binarySearch
-    private static int binarySearch(Comparable[] arr, int l, int r, int target){
+    private static int binarySearch(Comparable[] arr, int l, int r, int target){  // [l,r] 闭区间有效
 
         if(l > r)
             return -1;
@@ -36,7 +36,7 @@ public class Main {
 
         double t = pow(x, n / 2);
         if(n % 2 == 1)
-            return x * t * t;
+            return x * t * t;  // 如果是奇数 n/2 少了一个x 需要乘上
 
         return t * t;
     }
