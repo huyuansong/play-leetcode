@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /// 51. N-Queens
 /// https://leetcode.com/problems/n-queens/description/
-//  ，并回溯
+//  并回溯
 /// 时间复杂度: O(n^n)
 /// 空间复杂度: O(n)
 public class Solution {
@@ -15,7 +15,7 @@ public class Solution {
     private boolean[] dia2;
     private ArrayList<List<String>> res;
 
-    public List<List<String>> solveNQueens(int n) {
+    public List<List<String>> solveNQueens(int n) {   // 所有解《一个解《字符串》》
 
         res = new ArrayList<List<String>>();
         col = new boolean[n];
@@ -29,22 +29,22 @@ public class Solution {
     }
 
     // 尝试在一个n皇后问题中, 摆放第index行的皇后位置
-    private void putQueen(int n, int index, LinkedList<Integer> row){
+    private void putQueen(int n, int index, LinkedList<Integer> row){   // row 每一行的皇后排放在第几列的位置
 
-        if(index == n){
-            res.add(generateBoard(n, row));
+        if(index == n){  // index = n 时，已经得到了1个解
+            res.add(generateBoard(n, row));  //一个解（字符串组成的可视化解）
             return;
         }
 
         for(int i = 0 ; i < n ; i ++)
             // 尝试将第index行的皇后摆放在第i列
-            if(!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]){
+            if(!col[i] && !dia1[index + i] && !dia2[index - i + n - 1]){  // dia1 对角线 斜对角线
                 row.addLast(i);
-                col[i] = true;
+                col[i] = true;  //这一列不能再有其他皇后了
                 dia1[index + i] = true;
                 dia2[index - i + n - 1] = true;
-                putQueen(n, index + 1, row);
-                col[i] = false;
+                putQueen(n, index + 1, row);  // 尝试下一个位置
+                col[i] = false; // 回溯 撤回
                 dia1[index + i] = false;
                 dia2[index - i + n - 1] = false;
                 row.removeLast();
@@ -52,7 +52,7 @@ public class Solution {
 
         return;
     }
-
+    // 打印结果
     private List<String> generateBoard(int n, LinkedList<Integer> row){
 
         assert row.size() == n;
