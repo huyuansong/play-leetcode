@@ -48,7 +48,7 @@ public class Solution {
         for(String s: leftPaths){
             StringBuilder sb = new StringBuilder(Integer.toString(root.val));
             sb.append("->");
-            sb.append(s);
+            sb.append(s);   //当前节点+左子树路径
             res.add(sb.toString());
         }
 
@@ -56,7 +56,7 @@ public class Solution {
         for(String s: rightPaths) {
             StringBuilder sb = new StringBuilder(Integer.toString(root.val));
             sb.append("->");
-            sb.append(s);
+            sb.append(s);   // 当前节点+右子树路径
             res.add(sb.toString());
         }
 
