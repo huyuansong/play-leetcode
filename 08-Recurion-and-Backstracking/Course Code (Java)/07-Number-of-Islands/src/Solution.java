@@ -1,12 +1,13 @@
 /// 200. Number of Islands
 /// https://leetcode.com/problems/number-of-islands/description/
-//  广度优先遍历，实现遍历所有的元素，然后回溯
+//  广度优先遍历，实现遍历所有的元素，然后回溯 ，按照一定的方位顺序搜索，出错回退
+//  
 /// 时间复杂度: O(n*m)
 /// 空间复杂度: O(n*m)
 class Solution {
 
-    private int d[][] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    private int m, n;
+    private int d[][] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};  // 依次搜索的方位顺序
+    private int m, n;    // 整个区域的 行 列
     private boolean visited[][];
 
     public int numIslands(char[][] grid) {
@@ -24,7 +25,7 @@ class Solution {
             for(int j = 0 ; j < n ; j ++)
                 if(grid[i][j] == '1' && !visited[i][j]){
                     dfs(grid, i, j);
-                    res ++;
+                    res ++;   // 陆地的块数
                 }
 
         return res;
@@ -39,8 +40,8 @@ class Solution {
         for(int i = 0; i < 4; i ++){
             int newx = x + d[i][0];
             int newy = y + d[i][1];
-            if(inArea(newx, newy) && !visited[newx][newy] && grid[newx][newy] == '1')
-                dfs(grid, newx, newy);
+            if(inArea(newx, newy) && !visited[newx][newy] && grid[newx][newy] == '1')  // 递归允许的条件，终止的条件也就不用写了
+                dfs(grid, newx, newy);  // 深度优先遍历
         }
 
         return;
