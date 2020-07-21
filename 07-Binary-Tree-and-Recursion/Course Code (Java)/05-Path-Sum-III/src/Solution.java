@@ -25,6 +25,8 @@ Return 3. The paths that sum to 8 are:
 1.  5 -> 3
 2.  5 -> 2 -> 1
 3. -3 -> 11
+
+从任何节点开始向下走，和为给定的值，这个路径就是满足条件的结果
  */
 /// 时间复杂度: O(n), n为树的节点个数
 /// 空间复杂度: O(h), h为树的高度
@@ -38,14 +40,14 @@ class Solution {
         TreeNode(int x) { val = x; }
     }
 
-    // 在以root为根节点的二叉树中,寻找和为sum的路径,返回这样的路径个数
+    // 在以root为根节点的二叉树中,寻找和为sum的路径,返回这样的路径个数   从哪开始从哪结束都是可以的
     public int pathSum(TreeNode root, int sum) {
 
         if(root == null)
             return 0;
 
-        return findPath(root, sum)
-                + pathSum(root.left , sum)
+        return findPath(root, sum)   //root为根节点，包含root且和为sum的路径，返回路劲的个数
+                + pathSum(root.left , sum)     // 由于是子树，不包含root节点且和为sum的路径个数
                 + pathSum(root.right , sum);
     }
 
@@ -60,7 +62,7 @@ class Solution {
         if(node.val == num)             //只需要记录个数就好，不用把每个元素按顺序存储起来
             res += 1;
 
-        res += findPath(node.left , num - node.val);
+        res += findPath(node.left , num - node.val);  //在左子树中寻找
         res += findPath(node.right , num - node.val);
 
         return res;
