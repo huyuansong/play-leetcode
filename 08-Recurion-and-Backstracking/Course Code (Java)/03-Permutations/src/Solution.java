@@ -13,7 +13,7 @@
   [3,2,1]
 ] */
 
-//全排列问题
+//全排列问题  回溯法 递归树
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
