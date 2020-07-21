@@ -40,7 +40,7 @@ public class Solution {
             return res;
 
         if(root.left == null && root.right == null){
-            res.add(Integer.toString(root.val));                    //根
+            res.add(Integer.toString(root.val));                    //叶子节点
             return res;
         }
 

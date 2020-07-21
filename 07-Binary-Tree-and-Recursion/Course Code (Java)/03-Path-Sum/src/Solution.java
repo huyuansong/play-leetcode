@@ -31,9 +31,9 @@ class Solution {
     public boolean hasPathSum(TreeNode root, int sum) {
 
         if(root == null)
-            return false;    
+            return false ;    
 
-        if(root.left == null && root.right == null)  //这里有一个bug，只有根节点的时候也会返回结果，但是不符合题意 所以需要同时判断左右
+        if(root.left == null && root.right == null)  //这里有一个可能的bug，只有根节点的时候也会返回结果，但是不符合题意 所以需要同时判断左右
             return sum == root.val;
 
         return hasPathSum(root.left, sum - root.val)       //只需要递归每一棵子树
