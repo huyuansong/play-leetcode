@@ -52,7 +52,7 @@ class Solution {
 
         // 扫描freq,维护当前出现频率最高的k个元素
         // 在优先队列中,按照频率排序,所以数据对是 (频率,元素) 的形式  O(nlogk)
-        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<Pair<Integer, Integer>>(new PairComparator());  //logK  最小堆
+        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<Pair<Integer, Integer>>(new PairComparator());  //logK  最小堆 因为要淘汰频率最小的堆顶元素
         for(Integer num: freq.keySet()){    //o(n)
             int numFreq = freq.get(num);
             if(pq.size() == k){
