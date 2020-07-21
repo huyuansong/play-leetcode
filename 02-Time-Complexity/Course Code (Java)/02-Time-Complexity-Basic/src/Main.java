@@ -10,7 +10,7 @@ public class Main {
             long startTime = System.currentTimeMillis();
 
             long sum = 0;
-            for( int i = 0 ; i < n ; i ++ )
+            for( int i = 0 ; i < n ; i ++ )   // n 每次增长10倍，观察计算的时间
                 sum += i;
 
             long endTime = System.currentTimeMillis();
