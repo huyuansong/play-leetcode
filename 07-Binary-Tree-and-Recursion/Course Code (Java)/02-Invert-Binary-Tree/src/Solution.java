@@ -37,11 +37,19 @@ public class Solution {
         if(root == null)  //递归终止条件
             return null;
 
-        TreeNode left = invertTree(root.left);     //遍历所有的 小二叉树结构
-        TreeNode right = invertTree(root.right);
+        // TreeNode left = invertTree(root.left);     //遍历所有的 小二叉树结构
+        // TreeNode right = invertTree(root.right);
+        // root.left = right;    //反转操作
+        // root.right = left;
 
-        root.left = right;    //反转操作
-        root.right = left;
+        // 思路上表现为只反转一颗大的二叉树
+        invertTree( root.left );   // 左子树先反转
+        invertTree( root.right );
+
+        swap(root.left , root.right);  //最后一个大的树做反转
+
+
+
 
         return root;
     }
