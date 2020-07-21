@@ -18,7 +18,7 @@ public class Solution {
             return res;
 
         LinkedList<Integer> c = new LinkedList<Integer>();
-        generateCombinations(n, k, 1, c);
+        generateCombinations(n, k, 1, c);   // 第一次的调用
 
         return res;
     }
@@ -26,14 +26,14 @@ public class Solution {
     // 求解C(n,k), 当前已经找到的组合存储在c中, 需要从start开始搜索新的元素
     private void generateCombinations(int n, int k, int start, LinkedList<Integer> c){
 
-        if(c.size() == k){
+        if(c.size() == k){    // 递归终止条件
             res.add((List<Integer>)c.clone());
             return;
         }
 
-        for(int i = start ; i <= n ; i ++){
-            c.addLast(i);
-            generateCombinations(n, k, i + 1, c);
+        for(int i = start ; i <= n ; i ++){     // 递归调用的循环逻辑
+            c.addLast(i);   // 存储组合的元素
+            generateCombinations(n, k, i + 1, c);  //  递归树 组合选择问题
             c.removeLast();
         }
 
