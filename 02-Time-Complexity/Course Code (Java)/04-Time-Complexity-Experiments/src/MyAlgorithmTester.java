@@ -1,6 +1,4 @@
-/**
- * Created by liuyubobobo.
- */
+
 public class MyAlgorithmTester {
 
     private MyAlgorithmTester(){}
@@ -35,8 +33,8 @@ public class MyAlgorithmTester {
     // O(NlogN)
     public static void mergeSort(Comparable[] arr, int n ){
 
-        Comparable[] aux = new Comparable[n];
-        for(int i = 0 ; i < n ; i ++)
+        Comparable[] aux = new Comparable[n];  // 辅助空间
+        for(int i = 0 ; i < n ; i ++)  // 全部移动到辅助空间
             aux[i] = arr[i];
 
         for(int sz = 1; sz < n ; sz += sz)
