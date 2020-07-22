@@ -11,11 +11,11 @@ public class Solution4 {
         if(s <= 0 || nums == null)
             throw new IllegalArgumentException("Illigal Arguments");
 
-        int l = 0 , r = -1; // [l...r）为我们的窗口
+        int l = 0 , r = -1; // [l...r]为我们的窗口
         int sum = 0;
         int res = nums.length + 1;
 
-        while(r + 1 < nums.length){   // 窗口的右边界无法继续扩展了, 则循环继续
+        while(r + 1 < nums.length){   // 窗口的右边界至少还有一个元素的位置可以移动，则循环继续
 
             while(r + 1 < nums.length && sum < s)
                 sum += nums[++r];
