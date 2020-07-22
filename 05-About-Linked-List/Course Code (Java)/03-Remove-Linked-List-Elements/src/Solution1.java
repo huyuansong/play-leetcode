@@ -14,13 +14,14 @@ public class Solution1 {
         }
 
         if(head == null)
-            return head;
+            return null;
 
         ListNode cur = head;
-        while(cur.next != null){   
-            if(cur.next.val == val){
+        while(cur.next != null){    // cur是要删除元素的前一个位置 cur.next是要删除的元素
+            if(cur.next.val == val){  
                 ListNode delNode = cur.next;
                 cur.next = delNode.next; //直接跳过delNode节点
+                delNode = null; //告诉JVM可以回收掉了
             }
             else
                 cur = cur.next;

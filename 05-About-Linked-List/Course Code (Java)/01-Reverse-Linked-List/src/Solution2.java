@@ -13,7 +13,7 @@ public class Solution2 {
         ListNode(int x) { val = x; }
     }
 
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) { // 返回值 ：反转后链表的头结点
 
         // 递归终止条件
         if(head == null|| head.next == null)

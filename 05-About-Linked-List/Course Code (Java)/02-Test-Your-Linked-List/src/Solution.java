@@ -4,7 +4,7 @@
 // 空间复杂度: O(1)
 public class Solution {
 
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {   // 这一小段函数可以解决和头尾结点相关的很多情况
 
         ListNode pre = null;
         ListNode cur = head;
