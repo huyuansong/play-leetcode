@@ -10,15 +10,15 @@ public class Solution {
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
 
-        ListNode p = dummyHead;
-        while(p.next != null && p.next.next != null ){   //p.next为头节点 p.next.next为头节点的下一个节点 ，保证至少有两个实际的元素
-            ListNode node1 = p.next;
+        ListNode pre = dummyHead;
+        while(pre.next != null && pre.next.next != null ){   //p.next为头节点 p.next.next为头节点的下一个节点 ，保证至少有两个实际的元素才可以交换
+            ListNode node1 = pre.next;
             ListNode node2 = node1.next;
             ListNode next = node2.next;     //整个while循环，两个元素指针的交换，画图是非常容易理解的
             node2.next = node1;
             node1.next = next;
-            p.next = node2;
-            p = node1;
+            pre.next = node2;
+            pre = node1;   // 整体四个指针 pre node1 node2 next 四个指针向后移，这里先移动 pre ,那三指针上面移
         }
 
         return dummyHead.next;  //返回单链表的头节点
