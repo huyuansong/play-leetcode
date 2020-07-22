@@ -15,7 +15,7 @@ public class Solution3 {
         while(r + 1 < s.length()){   //窗口右侧至少还有一个元素可以加进来
 
             while(r + 1 < s.length() && freq[s.charAt(r+1)] == 0)  //  窗口右侧的元素没有越界，且这个元素是第一次出现
-                freq[s.charAt(++r)] ++;                            //  窗口右侧向前滑动，频率+1
+                freq[s.charAt(++r)] ++;                            //  窗口右侧向前滑动
 
             res = Math.max(res, r - l + 1);        //有没有产生新的最长记录
 

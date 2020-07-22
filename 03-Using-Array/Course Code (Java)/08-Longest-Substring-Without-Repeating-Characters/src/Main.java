@@ -3,14 +3,14 @@ import java.lang.Class;
 
 // 比较这个工程中 Solution1, Solution2, Solution3, Solution4 和 Solution5 的算法运行效率
 public class Main {
-
+    // 类名，方法名，方法的参数
     public static void testPerformace(String algoClassName, String algoName, String s){
 
         try{
-            Class algoClass = Class.forName(algoClassName);
-            Object solution = algoClass.newInstance();
+            Class algoClass = Class.forName(algoClassName);  // 反射 通过类名获得类字节码文件
+            Object solution = algoClass.newInstance();  // 通过类创建对象实例
 
-            // 通过排序函数的Class对象获得排序方法
+            // 通过类字节码获得里面的方法
             Method algoMethod = algoClass.getMethod(algoName, String.class);
 
             long startTime = System.currentTimeMillis();

@@ -13,7 +13,7 @@ Explanation: The answer is "wke", with the length of 3.
 class Solution1 {
     public int lengthOfLongestSubstring(String s) {
 
-        int[] freq = new int[256];
+        int[] freq = new int[256];   // 字符可以用ASCII码表示所有的情况
 
         int l = 0, r = -1; //滑动窗口为s[l...r]
         int res = 0;
@@ -22,12 +22,12 @@ class Solution1 {
         // 到l == s.size(); r == s.size()-1 这个空窗口截止
         // 在每次循环里逐渐改变窗口, 维护freq, 并记录当前窗口中是否找到了一个新的最优值
         // while(l < s.length()){   //维持定义的循环不变量
-            while(r+1 <= s.length()-1){
+            while(r+1 <= s.length()-1){   // 滑动窗口右侧还有一个元素可以供本次选择
 
-            if(r + 1 < s.length() && freq[s.charAt(r+1)] == 0)
-                freq[s.charAt(++r)] ++;
-            else    //r已经到头 || freq[s[r+1]] == 1
-                freq[s.charAt(l++)] --;
+            if(r + 1 < s.length() && freq[s.charAt(r+1)] == 0)  // 元素位置合法且第一次出现
+                freq[s.charAt(++r)] ++; //右侧窗口向前
+            else    //r已经没有元素可以取了 || freq[s[r+1]] == 1
+                freq[s.charAt(l++)] --;  // 左侧窗口向前
 
             res = Math.max(res, r-l+1);
         }

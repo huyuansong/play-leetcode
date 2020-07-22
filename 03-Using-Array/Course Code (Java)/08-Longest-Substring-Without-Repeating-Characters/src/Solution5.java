@@ -19,14 +19,14 @@ public class Solution5 {
 
         int l = 0, r = -1; //滑动窗口为s[l...r]，初始状态没有一个元素
         int res = 0;        //记录出现的最长的子串长度
-        while(r + 1 < s.length()){  //窗口最右侧元素（r+1）没有越界
+        while(r + 1 < s.length()){  //窗口最右侧为r ，还存在下一个元素没有纳入窗口，可以继续
 
             r ++;   //窗口右侧向前滑动
             if(last[s.charAt(r)] != -1)  //窗口右侧新元素 之前出现过窗口中！！！
                 l = Math.max(l, last[s.charAt(r)] + 1);     //窗口左侧直接移动 跳跃到曾经出现过的旧元素的下一个位置
 
             res = Math.max(res, r - l + 1);  //有没有产生新的最长子串
-            last[s.charAt(r)] = r;      //窗口最右侧的元素的位置索引得更新为当前位置r
+            last[s.charAt(r)] = r;      //窗口最右侧的元素的位置索引得更新为位置r
         }   //先把整体的大的思路流程写下来，然后再细分每一小步
 
         return res;
