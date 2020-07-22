@@ -7,7 +7,7 @@ public class Solution2 {
 
     public ListNode removeElements(ListNode head, int val) {
 
-        // 创建虚拟头结点  为了避免单链表中在删除元素时需要对头节点单独的处理，引入虚拟节点（哑节点），同样的代码适用于头节点的删除操作
+        // 创建虚拟头结点  为了避免单链表中在删除元素时需要对头节点单独的处理，引入虚拟节点（哑节点），一段代码逻辑可以同时适用于头节点的删除操作
         ListNode dummyHead = new ListNode(0);  //虚拟节点中存什么元素不重要，没有用
         dummyHead.next = head;
 
