@@ -29,8 +29,8 @@ class Solution {
         @Override
         public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2){
             if(p1.getKey() != p2.getKey())
-                return p1.getKey() - p2.getKey();
-            return p1.getValue() - p2.getValue();
+                return p1.getKey() - p2.getKey();  // key不相等，用key做判断，小的放在前面
+            return p1.getValue() - p2.getValue();  // 否则用value做判断
         }
     }
 
@@ -55,7 +55,7 @@ class Solution {
         PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<Pair<Integer, Integer>>(new PairComparator());  //logK  最小堆 因为要淘汰频率最小的堆顶元素
         for(Integer num: freq.keySet()){    //o(n)
             int numFreq = freq.get(num);
-            if(pq.size() == k){    //这是一个新的元素
+            if(pq.size() == k){    //优先队列已经满了，需要替换掉队列中比新频率小的数据
                 if(numFreq > pq.peek().getKey()){  
                     pq.poll();                      //优先队列中堆顶的数据被淘汰
                     pq.add(new Pair(numFreq, num)); //加入新的具有更高频率的数据
