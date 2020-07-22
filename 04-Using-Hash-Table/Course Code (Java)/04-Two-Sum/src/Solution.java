@@ -15,7 +15,7 @@ public class Solution {
 
             int complement = target - nums[i];   //求出第二个值是什么
             if(record.containsKey(complement)){  //第二个值在map中
-                int[] res = {i, record.get(complement)}; //返回当前的元素位置 + 第二个元素的位置 ；第一轮循环肯定没有值
+                int[] res = {i, record.get(complement)}; //返回当前的元素位置 + map中元素的位置 ；第一轮循环肯定没有值
                 return res;
             }
 

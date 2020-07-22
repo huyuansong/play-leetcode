@@ -4,20 +4,20 @@ import java.util.HashSet;
 // https://leetcode.com/problems/contains-duplicate-ii/description/
 /*
 Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the 
-array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，使得 nums [i] = nums [j]，并且 i 和 j 的差的 绝对值 至多为 k。
 
-Example 1:
+示例 1:
 
-Input: nums = [1,2,3,1], k = 3
-Output: true
-Example 2:
+输入: nums = [1,2,3,1], k = 3
+输出: true
+示例 2:
 
-Input: nums = [1,0,1,1], k = 1
-Output: true
-Example 3:
+输入: nums = [1,0,1,1], k = 1
+输出: true
+示例 3:
 
-Input: nums = [1,2,3,1,2,3], k = 2
-Output: false
+输入: nums = [1,2,3,1,2,3], k = 2
+输出: false
 
 num[i] = num[j] |i-j|<=k   
 
@@ -39,7 +39,7 @@ public class Solution {
             if(record.contains(nums[i]))    //窗口的长度始终维持在k之内，如果窗口中已经包含了这个新的元素，那么肯定是满足题目答案要求的
                 return true;
 
-            record.add(nums[i]);   //把元素加入到set窗口中
+            record.add(nums[i]);   //把元素加入到record窗口中
             if(record.size() == k + 1)  //如果set窗口的大小已经开始超过K的长度了，需要移除窗口左侧的元素，维持窗口的长度为K
                 record.remove(nums[i-k]);  //应该把窗口左侧的元素从set窗口左侧（i-k）移除  i表示窗口右侧当前的元素，k表示窗口的长度 
         }
