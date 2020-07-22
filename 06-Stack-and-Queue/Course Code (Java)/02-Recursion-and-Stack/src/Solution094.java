@@ -37,7 +37,7 @@ public class Solution094 {
     private void inorderTraversal(TreeNode node, List<Integer> list){  //递归实现中序遍历
         if(node != null){  //根存在
             inorderTraversal(node.left, list);  //左孩子 作为新的根
-            list.add(node.val);                 //把根加入到输出list中
+            list.add(node.val);                 //把根加入到输出list中，node为当前子树的根节点
             inorderTraversal(node.right, list); //右孩子 作为新的根
         }
     }

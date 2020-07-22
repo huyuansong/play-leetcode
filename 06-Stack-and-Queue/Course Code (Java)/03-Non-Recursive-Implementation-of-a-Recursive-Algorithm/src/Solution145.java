@@ -29,13 +29,13 @@ public class Solution145 {
     public List<Integer> postorderTraversal(TreeNode root) {
 
         ArrayList<Integer> res = new ArrayList<Integer>();   //存储结果的顺序数据
-        if(root == null)            // 打印条件
+        if(root == null)            // 特殊情况的处理
             return res; 
 
-        Stack<Command> stack = new Stack<Command>();   //借助栈 调整数据顺序
-        stack.push(new Command("go", root));
+        Stack<Command> stack = new Stack<Command>();   //借助栈 控制访问的顺序
+        stack.push(new Command("go", root));           // 假设只有这一棵树，任务就是访问它
         while(!stack.empty()){
-            Command command = stack.pop();     //出栈一个命令，根据命令类型，决定接下来的操作
+            Command command = stack.pop();     //出栈一个任务，根据命令类型，决定接下来的操作
 
             if(command.s.equals("print"))    
                 res.add(command.node.val);

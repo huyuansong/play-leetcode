@@ -28,24 +28,25 @@ public class Solution144 {
 
     public List<Integer> preorderTraversal(TreeNode root) {   //先序遍历 根左右
 
-        ArrayList<Integer> res = new ArrayList<Integer>();  //用ArrayList存放顺序打印的结果
-        if(root == null)                                    //完全退出函数的条件
+        ArrayList<Integer> res = new ArrayList<Integer>();  //用ArrayList存放打印的结果
+        if(root == null)                                    
             return res;
 
-        Stack<Command> stack = new Stack<Command>();        //借助 栈 控制顺序
-        stack.push(new Command("go", root));                //进栈 根节点
-        while(!stack.empty()){                              //栈不为空
-            Command command = stack.pop();                  //出栈
+        Stack<Command> stack = new Stack<Command>();        //借助 栈 控制访问顺序
+        stack.push(new Command("go", root));                // 可以认为只有当下的一棵树，那么任务只能是访问它
+        while(!stack.empty()){                              //栈只要不为空
+            Command command = stack.pop();                  //每次取出栈顶的元素
 
-            if(command.s.equals("print"))                   //出栈的过程
-                res.add(command.node.val);
-            else{
-                assert command.s.equals("go");
-                if(command.node.right != null)      //右节点不为空，右节点进栈
+            if(command.s.equals("print"))                   //分析刚才出栈的任务
+                res.add(command.node.val);                  // 打印
+            else{                                           // 访问
+                assert command.s.equals("go");  
+                if(command.node.right != null)      // 右节点存在，访问右节点
                     stack.push(new Command("go",command.node.right));
-                if(command.node.left != null)       //左节点不为空，左节点进栈
+                if(command.node.left != null)       //左节点存在，访问左节点
                     stack.push(new Command("go",command.node.left));
-                stack.push(new Command("print", command.node)); //最后根节点进栈
+
+                stack.push(new Command("print", command.node));  // 打印，再访问左孩子，右孩子
             }
         }
         return res;

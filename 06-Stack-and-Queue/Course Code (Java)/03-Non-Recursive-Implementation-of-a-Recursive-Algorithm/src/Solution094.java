@@ -33,18 +33,18 @@ public class Solution094 {
             return res;
 
         Stack<Command> stack = new Stack<Command>();     //中序遍历，手动实现，需要借助第三方数据结构  栈
-        stack.push(new Command("go", root));
+        stack.push(new Command("go", root));   // 可以看做只有一个节点，当下的任务只有访问这个节点
         while(!stack.empty()){
-            Command command = stack.pop();               //出栈
+            Command command = stack.pop();               // 取出接下来的任务
 
-            if(command.s.equals("print"))   //这是出栈的操作
+            if(command.s.equals("print"))               // 接下来的任务是打印 
                 res.add(command.node.val);
-            else{
+            else{                                       // 接下来的任务是访问
                 assert command.s.equals("go");
-                if(command.node.right != null)
-                    stack.push(new Command("go",command.node.right));   //反向压栈的过程  中序出栈顺序：左根右  入栈顺序：右根左  
-                stack.push(new Command("print", command.node)); //---------> 入栈根节点的过程
-                if(command.node.left != null)
+                if(command.node.right != null)          // 右节点存在
+                    stack.push(new Command("go",command.node.right));   // 访问右节点  
+                stack.push(new Command("print", command.node));         // 打印根节点
+                if(command.node.left != null)                           // 左节点存在，访问左节点
                     stack.push(new Command("go",command.node.left));
             }
         }
