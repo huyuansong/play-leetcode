@@ -1,14 +1,11 @@
 import java.util.Arrays;
 
-/**
- * Created by liuyubobobo.
- */
 public class Solution1 {
 
     private int[] memo;
 
     public int climbStairs(int n) {
-        memo = new int[n+1];
+        memo = new int[n+1];  // 因为有 0 …… n 个阶段的数据都需要存储 共 n+1 个
         Arrays.fill(memo, -1);
         return calcWays(n);
     }
@@ -18,8 +15,8 @@ public class Solution1 {
         if(n == 0 || n == 1)    // 最小子问题
             return 1;
 
-        if(memo[n] == -1)      // 数组实现记忆化存储  + 自上而下 递归调用
-            memo[n] = calcWays(n - 1) + calcWays(n - 2);
+        if(memo[n] == -1)      // -1 说明还没有被覆盖掉初始化的值 ，数组实现记忆化存储  
+            memo[n] = calcWays(n - 1) + calcWays(n - 2);  // 自上而下 递归调用
 
         return memo[n];
     }
