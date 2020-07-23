@@ -23,13 +23,13 @@ public class Solution {
     private ArrayList<List<Integer>> res;
     private boolean[] used;
 
-    public List<List<Integer>> permute(int[] nums) {   // permute 全排列
+    public List<List<Integer>> permute(int[] nums) {   // permute 全排列 123
 
         res = new ArrayList<List<Integer>>();
         if(nums == null || nums.length == 0)
             return res;
 
-        used = new boolean[nums.length];
+        used = new boolean[nums.length];  
         LinkedList<Integer> p = new LinkedList<Integer>();
         generatePermutation(nums, 0, p);
 
@@ -38,19 +38,19 @@ public class Solution {
 
     // p中保存了一个有index-1个元素的排列。
     // 向这个排列的末尾添加第index个元素, 获得一个有index个元素的排列
-    private void generatePermutation(int[] nums, int index, LinkedList<Integer> p){ // index 正在处理第几个元素 
+    private void generatePermutation(int[] nums, int index, LinkedList<Integer> p){ // index 正在处理的元素 p 前面元素已经得到的解
 
-        if(index == nums.length){  // 终止条件
+        if(index == nums.length){  // 找到一个满足条件的解
             res.add((LinkedList<Integer>)p.clone());
             return;
         }
 
         for(int i = 0 ; i < nums.length ; i ++)   //回溯
             if(!used[i]){           
-                p.addLast(nums[i]);     // nums[i]没有被使用过，才可以加入到list中
-                used[i] = true;
+                p.addLast(nums[i]);     // nums[i]没有被计算过，才需要重新计算
+                used[i] = true;            
                 generatePermutation(nums, index + 1, p );
-                p.removeLast();  // 把最后一个元素退出
+                p.removeLast();  // 把刚才加入的元素 i 退出
                 used[i] = false;  // 修改为没有使用过
             }
 

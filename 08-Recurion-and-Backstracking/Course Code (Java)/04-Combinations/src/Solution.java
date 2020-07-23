@@ -26,15 +26,15 @@ public class Solution {
     // 求解C(n,k), 当前已经找到的组合存储在c中, 需要从start开始搜索新的元素
     private void generateCombinations(int n, int k, int start, LinkedList<Integer> c){
 
-        if(c.size() == k){    // 递归终止条件
+        if(c.size() == k){    // 已经选取了 k 个元素，说明找到了一个满足条件的组合
             res.add((List<Integer>)c.clone());
             return;
         }
 
-        for(int i = start ; i <= n ; i ++){     // 递归调用的循环逻辑
-            c.addLast(i);   // 存储组合的元素
-            generateCombinations(n, k, i + 1, c);  //  递归树 组合选择问题
-            c.removeLast();
+        for(int i = start ; i <= n ; i ++){     // 组合问题当前选取的元素
+            c.addLast(i);   // 考虑选取当前 i 位置的元素
+            generateCombinations(n, k, i + 1, c);  // 选取当前组合的下一个元素
+            c.removeLast();  // i 元素已经选取完了，接着考虑下一种情况 ，回溯
         }
 
         return;

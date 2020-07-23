@@ -4,6 +4,21 @@ import java.util.LinkedList;
 
 /// 77. Combinations  组合问题
 /// https://leetcode.com/problems/combinations/description/
+/* 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
+
+示例:
+
+输入: n = 4, k = 2
+输出:
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+ */
 /// 时间复杂度: O(n^k)
 /// 空间复杂度: O(k)
 //  优化 剪枝
@@ -31,12 +46,14 @@ public class Solution {
             return;
         }
 
-        // 还有k - c.size()个空位, 所以, [i...n] 中至少要有 k - c.size() 个元素
-        // i最多为 n - (k - c.size()) + 1   这一步就做到了剪枝的优化（ k - c.size ）
+        
+        // c.size 个元素是已经选取的，还剩下 k-size 个元素要选取 ，提供选择的元素范围是【i，n】至少要有这么多个元素 
+        // 区间长度 n-i+1 >= (k-size) ， 那么 i <= n - (k-size) + 1
+        // 这里就做到了优化的功能， 这个过程有一个优雅的名字 叫做 剪枝
         for(int i = start ; i <= n - (k - c.size()) + 1 ; i ++){
-            c.addLast(i);
+            c.addLast(i);      // 考虑这个元素
             generateCombinations(n, k, i + 1, c);
-            c.removeLast();
+            c.removeLast();   // 回溯
         }
 
         return;
