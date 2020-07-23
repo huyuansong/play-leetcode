@@ -25,15 +25,15 @@ public class Solution {
     private int m, n;
     private boolean[][] visited;
 
-    public boolean exist(char[][] board, String word) {
+    public boolean exist(char[][] board, String word) {   // 用来处理各种异常情况
 
         if(board == null || word == null)
             throw new IllegalArgumentException("board or word can not be null!");
 
-        m = board.length;
+        m = board.length;  // 有多少行
         if(m == 0)
             throw new IllegalArgumentException("board can not be empty.");
-        n = board[0].length;
+        n = board[0].length;   // 有多少列
         if(n == 0)
             throw new IllegalArgumentException("board can not be empty.");
 
@@ -47,7 +47,7 @@ public class Solution {
     }
 
     private boolean inArea( int x , int y ){
-        return x >= 0 && x < m && y >= 0 && y < n;
+        return x >= 0 && x < m && y >= 0 && y < n;   // x 向下 ， y 向右 坐标系
     }
 
     // 从board[startx][starty]开始, 寻找word[index...word.size())
@@ -55,20 +55,20 @@ public class Solution {
                                int startx, int starty){
 
         //assert(inArea(startx,starty));
-        if(index == word.length() - 1)     // 最后一个元素，结束条件
-            return board[startx][starty] == word.charAt(index);
+        if(index == word.length() - 1)     // 已经找到了一个满足字符串长度的序列了
+            return board[startx][starty] == word.charAt(index); // 前面的元素都满足条件了，只剩下判断最后一位元素是否相等
 
         if(board[startx][starty] == word.charAt(index)){  // 当前位置的元素是匹配的
             visited[startx][starty] = true;
             // 从startx, starty出发,向四个方向寻
             for(int i = 0 ; i < 4 ; i ++){
-                int newx = startx + d[i][0];   // 要寻找的下一个元素的 新坐标
-                int newy = starty + d[i][1];
+                int newx = startx + d[i][0];   // {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}  [][0] 只取{X上下，Y左右} X上下的值，上下移动
+                int newy = starty + d[i][1];   // [][1] 只取上述集合中的右侧的值，在左右做移动
                 if(inArea(newx, newy) && !visited[newx][newy] &&   // 在要扫描的区域，且没有访问过
                         searchWord(board, word, index + 1, newx, newy))
                     return true;
             }
-            visited[startx][starty] = false;
+            visited[startx][starty] = false;  // 回溯，假设回到这个位置没有被访问过的时候，再去访问4个中其他可能的位置
         }
         return false;
     }
