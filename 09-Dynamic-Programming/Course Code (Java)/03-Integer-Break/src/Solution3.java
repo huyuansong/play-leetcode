@@ -1,6 +1,6 @@
 /// 343. Integer Break
 /// https://leetcode.com/problems/integer-break/description/
-/// 动态规划
+/// 动态规划  自底向上  递推
 /// 时间复杂度: O(n^2)
 /// 空间复杂度: O(n)
 public class Solution3 {
@@ -12,10 +12,13 @@ public class Solution3 {
 
         int[] memo = new int[n+1];
         memo[1] = 1;
-        for(int i = 2 ; i <= n ; i ++)
+        for(int i = 2 ; i <= n ; i ++){
             // 求解memo[i]
-            for(int j = 1 ; j <= i - 1 ; j ++)    // 不如直接引入数组，每次计数 自底向上
+            for(int j = 1 ; j <= i - 1 ; j ++)  // 不如直接引入数组，每次计数 自底向上
                 memo[i] = max3(memo[i], j * (i - j), j * memo[i - j]);
+                
+            System.out.println("memo["+i+"]=" + memo[i]);
+        }
 
         return memo[n];
     }

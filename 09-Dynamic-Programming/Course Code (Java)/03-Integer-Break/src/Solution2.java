@@ -2,7 +2,8 @@ import java.util.Arrays;
 
 /// 343. Integer Break
 /// https://leetcode.com/problems/integer-break/description/
-/// 记忆化搜索
+
+///  + 记忆化搜索 避免已经拆分过的数字在需要的时候多次拆分，用一个数组记录拆分过的数据
 /// 时间复杂度: O(n^2)
 /// 空间复杂度: O(n)
 public class Solution2 {
@@ -32,7 +33,8 @@ public class Solution2 {
         int res = -1;
         for(int i = 1 ; i <= n - 1 ; i ++)
             res = max3(res, i * (n - i) , i * breakInteger(n - i));
-        memo[n] = res;    //重复子问题结构 记忆化
+        memo[n] = res;    // 因为这一段代码在递归函数中，所以n会从最小的2返回，然后是3……n   由于是递归，memo还得是一个全局变量才不会每次清0
+        System.out.println("memn["+n+"] = "+memo[n]);
         return res;
     }
 
