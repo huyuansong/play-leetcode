@@ -16,7 +16,7 @@ public class Solution1 {
         if(n == 0 || C == 0)
             return 0;
 
-        int[][] memo = new int[2][C + 1];
+        int[][] memo = new int[2][C + 1];  // 空间可以节省，第二行的数据只参照第一行的数据，因此留两行空间就够了，来回交替使用
 
         for(int j = 0 ; j <= C ; j ++)
             memo[0][j] = (j >= w[0] ? v[0] : 0);

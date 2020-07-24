@@ -16,14 +16,14 @@ public class Solution2 {
         if(n == 0 || C == 0)
             return 0;
 
-        int[] memo = new int[C+1];
+        int[] memo = new int[C+1];  // 其实一行的空间也够用
 
         for(int j = 0 ; j <= C ; j ++)
-            memo[j] = (j >= w[0] ? v[0] : 0);
+            memo[j] = (j >= w[0] ? v[0] : 0);  // 只放0号物品，把数组中的第一行初始数据建立起来 memo[0..C] 全部有值
 
         for(int i = 1 ; i < n ; i ++)
-            for(int j = C ; j >= w[i] ; j --)
-                memo[j] = Math.max(memo[j], v[i] + memo[j - w[i]]);
+            for(int j = C ; j >= w[i] ; j --)  // 由于后面物品的容积只参照前面物品的容积数据，所以从后往前依次覆盖掉不会再使用的数据
+                memo[j] = Math.max(memo[j], v[i] + memo[j - w[i]]); // [只放i号物品 ... 刚好放的下i号物品] 中的最大的价值 从0号物品开始迭代，开始+v[i]迭代
 
         return memo[C];
     }
