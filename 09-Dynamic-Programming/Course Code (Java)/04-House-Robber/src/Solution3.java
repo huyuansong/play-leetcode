@@ -7,7 +7,7 @@ import java.util.Arrays;
 /// 空间复杂度: O(n)
 public class Solution3 {
 
-    // memo[i] 表示考虑抢劫 nums[0...i] 所能获得的最大收益
+    // memo[i] 表示考虑抢劫 nums[0...i] 所能获得的最大收益    之前是从后往前【i，n】考虑，现在是从前往后【0，i】考虑
     private int[] memo;
 
     public int rob(int[] nums) {
@@ -19,16 +19,19 @@ public class Solution3 {
     // 考虑抢劫nums[0...index]这个范围的所有房子
     private int tryRob(int[] nums, int index){
 
-        if(index < 0)
+        if(index < 0)  // 递归到底，开始反向累加的起始位置
             return 0;
 
         if(memo[index] != -1)
             return memo[index];
 
         int res = 0;
-        for(int i = 0 ; i <= index ; i ++)
-            res = Math.max(res, nums[i] + tryRob(nums, i - 2));
-        memo[index] = res;
+        for(int i = 0 ; i <= index ; i ++) { 
+            res = Math.max(res, nums[i] + tryRob(nums, i - 2)); // i为不同的值，抢的房子就不一样，对比在index范围内的最大方案 
+            System.out.println(i);
+        }
+        System.out.println("----------一轮函数调用--------------");
+        memo[index] = res;  // 
         return res;
     }
 

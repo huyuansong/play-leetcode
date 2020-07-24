@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /// 198. House Robber
 /// https://leetcode.com/problems/house-robber/description/
-/// 动态规划, 优化状态转移
+/// 动态规划, 优化状态转移 逻辑更加的清晰
 /// 时间复杂度: O(n)
 /// 空间复杂度: O(n)
 public class Solution6 {

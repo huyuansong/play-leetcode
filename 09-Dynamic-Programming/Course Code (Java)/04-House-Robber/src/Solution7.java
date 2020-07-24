@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /// 198. House Robber
 /// https://leetcode.com/problems/house-robber/description/
-/// 记忆化搜索, 改变状态定义, 优化转移方程
+/// 记忆化搜索, 改变状态定义, 优化转移方程 逻辑更加的清晰
 /// 时间复杂度: O(n)
 /// 空间复杂度: O(n)
 public class Solution7 {

@@ -15,8 +15,9 @@ public class Solution4 {
         int[] memo = new int[nums.length];
         memo[0] = nums[0];
         for(int i = 1 ; i < n ; i ++)
+            // 求memo[i]
             for (int j = i; j >= 0; j--)
-                memo[i] = Math.max(memo[i],
+                memo[i] = Math.max(memo[i], //memo[i]第一轮为默认值0，后来每一轮和前一轮的结果比较，选出最大值
                                    nums[j] + (j - 2 >= 0 ? memo[j - 2] : 0));
 
         return memo[n-1];
