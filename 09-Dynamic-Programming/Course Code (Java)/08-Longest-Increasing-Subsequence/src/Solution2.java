@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /// 300. Longest Increasing Subsequence
 /// https://leetcode.com/problems/longest-increasing-subsequence/description/
-/// 记忆化搜索
+/// 记忆化搜索  经典的动态规划问题 这里可以使用 自顶向下 的方式解决
 /// 时间复杂度: O(n^2)
 /// 空间复杂度: O(n)
 public class Solution2 {
