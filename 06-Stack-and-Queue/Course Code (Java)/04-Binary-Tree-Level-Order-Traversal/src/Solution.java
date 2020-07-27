@@ -20,7 +20,7 @@ class Solution {
 
     public List<List<Integer>> levelOrder(TreeNode root) {   //层次遍历
 
-        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>();  //list存放顺序输出的结果 一个list存放一层的数据
+        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>();  // 输出结果多层 list < 一层的元素list<int> >
         if(root == null)                // 特殊情况处理
             return res;
 
@@ -28,7 +28,7 @@ class Solution {
         LinkedList<Pair<TreeNode, Integer>> queue = new LinkedList<Pair<TreeNode, Integer>>();
         queue.addLast(new Pair<TreeNode, Integer>(root, 0));  //先把 （根节点，所处第几层） 入队列 访问根节点
 
-        while(!queue.isEmpty()){          //队列不为空  当根节点出队列的时候，需要加入该根节点的左右孩子 抵押
+        while(!queue.isEmpty()){          //队列不为空  当根节点出队列的时候，需要加入该根节点的左右孩子入队 抵押
 
             Pair<TreeNode, Integer> front = queue.removeFirst();  //移除第一个元素
             TreeNode node = front.getKey();         //得到节点
