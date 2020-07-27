@@ -1,7 +1,6 @@
 /// Source : https://leetcode.com/problems/binary-tree-preorder-traversal/description/
-/// Author : liuyubobobo
-/// Time   : 2017-11-17
 
+// 先序遍历 根左右
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;

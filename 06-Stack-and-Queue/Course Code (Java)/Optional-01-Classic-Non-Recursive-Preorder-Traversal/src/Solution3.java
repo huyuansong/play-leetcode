@@ -1,6 +1,5 @@
 /// Source : https://leetcode.com/problems/binary-tree-preorder-traversal/description/
-/// Author : liuyubobobo
-/// Time   : 2018-05-30
+
 
 import java.util.ArrayList;
 import java.util.List;

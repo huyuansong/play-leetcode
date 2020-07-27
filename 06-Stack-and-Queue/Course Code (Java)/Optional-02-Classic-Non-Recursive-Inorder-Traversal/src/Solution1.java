@@ -1,6 +1,5 @@
 /// Source : https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
-/// Author : liuyubobobo
-/// Time   : 2018-05-30
+// 中序遍历 左根右
 
 import java.util.ArrayList;
 import java.util.List;
