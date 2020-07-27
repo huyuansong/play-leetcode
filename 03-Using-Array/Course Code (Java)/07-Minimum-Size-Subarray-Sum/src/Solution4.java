@@ -6,7 +6,7 @@
 // 空间复杂度: O(1)
 public class Solution4 {
 
-    public int minSubArrayLen(int s, int[] nums) {
+    public int minSubArrayLen(int s, int[] nums) {  // s 元素和
 
         if(s <= 0 || nums == null)
             throw new IllegalArgumentException("Illigal Arguments");
@@ -15,7 +15,7 @@ public class Solution4 {
         int sum = 0;
         int res = nums.length + 1;
 
-        while(r + 1 < nums.length){   // 窗口的右边界至少还有一个元素的位置可以移动，则循环继续
+        while(r + 1 < nums.length){   // 窗口的右边界 至少还有一个元素可以用来移动
 
             while(r + 1 < nums.length && sum < s)
                 sum += nums[++r];

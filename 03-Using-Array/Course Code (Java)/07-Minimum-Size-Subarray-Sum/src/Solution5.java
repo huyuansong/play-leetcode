@@ -23,7 +23,7 @@ public class Solution5 {
         for(int l = 0 ; l < nums.length ; l ++){
             // Java类库中没有内置的lowerBound方法，
             // 我们需要自己实现一个基于二分搜索的lowerBound:)
-            int r = lowerBound(sums, sums[l] + s);
+            int r = lowerBound(sums, sums[l] + s);   // s 元素和
             if(r != sums.length){
                 res = Math.min(res, r - l);
             }
@@ -50,7 +50,7 @@ public class Solution5 {
                 l = mid + 1;
         }
 
-        return l;
+        return l;  // 在有序数组nums中寻找大于等于target的最小值
     }
 
     private boolean isSorted(int[] nums){
