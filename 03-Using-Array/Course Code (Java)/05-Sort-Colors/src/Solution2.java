@@ -11,7 +11,7 @@ public class Solution2 {
 
         int zero = -1;          // [0...zero] == 0
         int two = nums.length;  // [two...n-1] == 2
-        for(int i = 0 ; i < two ; ){  //画图很容易
+        for(int i = 0 ; i < two ; ){  //画图很容易，循环不变量，定义清楚每一个指针的语义和位置
             if(nums[i] == 1){
                 i ++;  
             }
