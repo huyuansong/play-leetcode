@@ -43,8 +43,8 @@ public class Solution {
         // root.right = left;
 
         // 思路上表现为只反转一颗大的二叉树
-        invertTree( root.left );   // 递归调用
-        invertTree( root.right );
+        invertTree( root.left );   // 递归调用子树
+        invertTree( root.right );  // 递归调用子树
 
         swap(root.left , root.right);  // 左右翻转
 
