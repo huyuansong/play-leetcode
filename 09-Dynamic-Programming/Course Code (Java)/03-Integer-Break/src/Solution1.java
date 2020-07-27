@@ -38,6 +38,7 @@ public class Solution1 {
         int res = -1;
         for(int i = 1 ; i <= n - 1 ; i ++)
             res = max3(res, i * (n - i), i * breakInteger(n - i));  //自底向上 尝试更新 要么不拆解，要么拆解一次，要么拆解多次
+                                                                    // 但是 这里的 breakInteger()函数是递归，自顶向下
         return res;
     }
 
