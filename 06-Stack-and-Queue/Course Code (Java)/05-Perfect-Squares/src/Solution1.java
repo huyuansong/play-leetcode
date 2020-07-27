@@ -21,10 +21,10 @@ import javafx.util.Pair;
 // 空间复杂度: O(2^n)
 public class Solution1 {
 
-    public int numSquares(int n) {  //问题转化为 求一个图的层次遍历
+    public int numSquares(int n) {  //问题转化为 求一个图的层次遍历 到达n需要走动的步数
 
         LinkedList<Pair<Integer, Integer>> queue = new LinkedList<Pair<Integer, Integer>>();  //层序遍历需要一个队列  pair<第几个数字，经历了几段路径到该数字>
-        queue.addLast(new Pair<Integer, Integer>(n, 0));  // <第几个数字，经历了几段路径走到这个数字> 初始化
+        queue.addLast(new Pair<Integer, Integer>(n, 0));  // <第几个数字，经历了几段路径走到这个数字> 初始化 从n到n，需要0步
 
         while(!queue.isEmpty()){
             Pair<Integer, Integer> front = queue.removeFirst();  //取出队首的元素
@@ -32,10 +32,10 @@ public class Solution1 {
             int step = front.getValue(); //走了几段路径
 
             if(num == 0)
-                return step;      //这就是解
+                return step;      //这就是解 从n到0 ，需要step步
 
             for(int i = 1 ; num - i*i >= 0 ; i ++)      //num还可以承受一个平方数
-                queue.addLast(new Pair(num - i * i, step + 1));  //向结果队列中 推入 新的数据对
+                queue.addLast(new Pair(num - i * i, step + 1));  //向结果队列中 推入 新的数据对 ，能拆分，则步数+1
         }
 
         throw new IllegalStateException("No Solution.");

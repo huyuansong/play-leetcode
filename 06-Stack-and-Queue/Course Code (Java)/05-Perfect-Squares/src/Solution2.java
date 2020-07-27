@@ -39,7 +39,7 @@ public class Solution2 {
                 return step;
 
             for(int i = 1 ; num - i*i >= 0 ; i ++)
-                if(!visited[num - i * i]){  //该数字还没有被访问
+                if(!visited[num - i * i]){  //该数字还没有被记录到达需要多少步，那就现在开始计算
                     queue.addLast(new Pair(num - i * i, step + 1));  // 修改步数
                     visited[num - i * i] = true;   //标记该数字被访问过了
                 }
