@@ -26,8 +26,8 @@ public class Solution144 {
     private void preorderTraversal(TreeNode node, List<Integer> list){
         if(node != null){
             list.add(node.val);                 //根先入栈
-            preorderTraversal(node.left, list); //左节点作为根，入栈
-            preorderTraversal(node.right, list);//右节点作为根，入栈
+            preorderTraversal(node.left, list); //左节点作为根
+            preorderTraversal(node.right, list);//右节点作为根
         }
     }
 }
