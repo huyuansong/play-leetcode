@@ -1,7 +1,7 @@
 // 3. Longest Substring Without Repeating Characters
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 //
-// 滑动窗口
+// 滑动窗口   修改了循环不变量的语义
 // 时间复杂度: O(len(s))
 // 空间复杂度: O(len(charset))
 public class Solution2 {

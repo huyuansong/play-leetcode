@@ -26,7 +26,7 @@ public class Solution5 {
                 l = Math.max(l, last[s.charAt(r)] + 1);     //窗口左侧直接移动 跳跃到曾经出现过的旧元素的下一个位置
 
             res = Math.max(res, r - l + 1);  //有没有产生新的最长子串
-            last[s.charAt(r)] = r;      //窗口最右侧的元素的位置索引得更新为位置r
+            last[s.charAt(r)] = r;      //窗口在循环开始的时候向后移动了，窗口最右侧的元素的位置索引得更新为位置r
         }   //先把整体的大的思路流程写下来，然后再细分每一小步
 
         return res;

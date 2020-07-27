@@ -19,7 +19,7 @@ class Solution1 {
         int res = 0;
 
         // 整个循环从 l == 0; r == -1 这个空窗口开始
-        // 到l == s.size(); r == s.size()-1 这个空窗口截止
+        // 到l == s.length(); r == s.length()-1 这个空窗口截止
         // 在每次循环里逐渐改变窗口, 维护freq, 并记录当前窗口中是否找到了一个新的最优值
         // while(l < s.length()){   //维持定义的循环不变量
             while(r+1 <= s.length()-1){   // 滑动窗口右侧还有一个元素可以供本次选择
