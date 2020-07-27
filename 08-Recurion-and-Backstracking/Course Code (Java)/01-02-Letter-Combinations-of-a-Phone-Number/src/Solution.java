@@ -52,8 +52,7 @@ class Solution {
                 c.compareTo('1') != 0;
         String letters = letterMap[c - '0']; // 将字符类型的数字”1“转为int型的1，作为数组下标
         for(int i = 0 ; i < letters.length() ; i ++){     // 在这里回溯 因为不知道字母到底有多长，所以只能使用回溯的方式，否则直接使用多重for循环就好了
-            System.out.println("digits[" + index + "] = " + c +
-                    " , use " + letters.charAt(i));
+            System.out.println("digits[" + index + "] = " + c +" , use " + letters.charAt(i));
             findCombination(digits, index+1, s + letters.charAt(i));   // 2 取一个字母，3取后面的字母，然后2 取下一个字母，3接着取后面的字母，构成回溯
         }
 
