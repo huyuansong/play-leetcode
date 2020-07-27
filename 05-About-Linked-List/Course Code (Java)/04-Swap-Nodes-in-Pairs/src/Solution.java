@@ -5,7 +5,7 @@
 //  单链表的操作一定要引入虚拟头节点
 public class Solution {
 
-    public ListNode swapPairs(ListNode head) {
+    public ListNode swapPairs(ListNode head) {  // 返回值：删除元素之后的链表的头结点
 
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
@@ -18,7 +18,7 @@ public class Solution {
             node2.next = node1;
             node1.next = next;
             pre.next = node2;
-            pre = node1;   // 整体四个指针 pre node1 node2 next 四个指针向后移，这里先移动 pre ,那三指针上面移
+            pre = node1;   // 整体四个指针 pre node1 node2 next 四个指针向后移，这里移动 pre ,那三指针上面移
         }
 
         return dummyHead.next;  //返回单链表的头节点
