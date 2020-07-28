@@ -22,7 +22,7 @@ public class Solution1 {
         for(int i = 0; i < n; i ++)
             for(int j = 0; j <= C; j ++)
                 memo[i][j] = -1;        // 初始化所有的空间为 -1
-        return bestValue(w, v, n - 1, C);  // 最后一个物品编号n-1 ，把全部的物品【0，n-1】填入背包中
+        return bestValue(w, v, n - 1, C);  // 最后一个物品编号n-1 ，尝试用全部的物品【0，n-1】装满背包
     }
 
     // 用 [0...index]的物品,填充容积为c的背包的最大价值 c为当前剩下的容积 C为背包的最大容积
