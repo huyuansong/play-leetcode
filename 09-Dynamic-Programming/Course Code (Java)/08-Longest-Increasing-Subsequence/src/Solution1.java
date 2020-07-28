@@ -46,10 +46,10 @@ public class Solution1 {
 
         int res = 1;
         for(int i = 0 ; i <= index-1 ; i ++)
-            if(nums[index] > nums[i])
+            if(nums[index] > nums[i])  // index 位置的元素比前面位置的元素大，有可能会刷新最长长度
                 res = Math.max(res, 1 + getMaxLength(nums, i));
 
-        return memo[index] = res;
+        return memo[index] = res;  // 基于传入的index范围内的最大值
     }
 
     public static void main(String[] args) {

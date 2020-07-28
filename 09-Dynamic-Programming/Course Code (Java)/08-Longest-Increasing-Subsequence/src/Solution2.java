@@ -18,7 +18,7 @@ public class Solution2 {
         for(int i = 1 ; i < nums.length ; i ++)
             // 求 memo[i]
             for(int j = 0 ; j < i ; j ++)
-                if(nums[i] > nums[j]) // 数组元素是递增的
+                if(nums[i] > nums[j]) // 索引i位置的元素比前面的元素大，有可能产生一个新的长度
                     memo[i] = Math.max(memo[i], 1 + memo[j]);
 
         int res = memo[0];
