@@ -47,7 +47,7 @@ public class LCS1 {
     // 通过memo反向求解s1和s2的最长公共子序列
     private String getLCS(String s1, String s2){
 
-        int m = s1.length() - 1;
+        int m = s1.length() - 1;  // 最后一个元素的索引
         int n = s2.length() - 1;
 
         StringBuilder res = new StringBuilder("");
