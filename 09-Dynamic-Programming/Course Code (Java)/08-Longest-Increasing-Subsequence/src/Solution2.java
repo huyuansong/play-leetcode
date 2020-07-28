@@ -16,8 +16,9 @@ public class Solution2 {
         int memo[] = new int[nums.length];
         Arrays.fill(memo, 1);
         for(int i = 1 ; i < nums.length ; i ++)
+            // 求 memo[i]
             for(int j = 0 ; j < i ; j ++)
-                if(nums[i] > nums[j])
+                if(nums[i] > nums[j]) // 数组元素是递增的
                     memo[i] = Math.max(memo[i], 1 + memo[j]);
 
         int res = memo[0];
